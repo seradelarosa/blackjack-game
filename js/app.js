@@ -16,17 +16,25 @@ let winner;
 let playerTotal = 0;
 let dealerTotal;
 
+let playerTurn = true; //this is the starting value of the player turn
+const changeTurn = document.querySelector("#changeTurn");
+
 //cached elements
 const playerDealBtn = document.querySelector("#playerDrawBtn");
 // console.log(playerDealBtn);
 
-//functions
+//definitions of the functions i want to use, but theyre not called yet
 const dealACard = () => {
     //generate random numbwer 1-11
 let currentDraw = Math.floor(Math.random() * 12)
 //add the number to player total
 playerTotal = playerTotal + currentDraw;
 console.log(playerTotal);
+};
+
+const switchToDealer = () => {
+    playerTurn = false;
+    
 };
 
 //basic logic for playerTotal
@@ -36,3 +44,4 @@ console.log(playerTotal);
 
 //event listeners
 playerDealBtn.addEventListener("click", dealACard);
+changeTurn.addEventListener("click", switchToDealer);
